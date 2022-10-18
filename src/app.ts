@@ -8,11 +8,6 @@ const cors = require("cors")
 
 const app = express()
 
-import userRoute from "./routes/user.route"
-import authRoute from "./routes/auth.route"
-import classRoute from "./routes/class.route"
-import postRoute from "./routes/post.routes"
-
 app.use(json())
 app.use(cors())
 const PORT: any = process.env.PORT || 3000
@@ -25,11 +20,6 @@ app
       .initialize()
       .then((res: any) => {
         console.log("Connected to the database ! ")
-
-        app.use("/me", userRoute)
-        app.use("/auth", authRoute)
-        app.use("/class", classRoute)
-        app.use("posts" , postRoute)
       })
       .catch((e: any) => {
         console.log(e)

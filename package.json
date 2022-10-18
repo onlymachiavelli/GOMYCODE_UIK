@@ -1,5 +1,5 @@
 {
-  "name": "uikfront",
+  "name": "uikback",
   "version": "1.0.0",
   "description": "UIK Hackathon",
   "main": "src/app.ts",
