@@ -1,4 +1,4 @@
 import appDataSource from "./POSTGRES"
 import Users from "../models/users"
 
-const userRepo = appDataSource.getRepository(Users)
+export const userRepo = appDataSource.getRepository(Users)

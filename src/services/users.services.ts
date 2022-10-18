@@ -1,5 +1,5 @@
 import Users from "./../models/users"
-
+import { userRepo } from "./../utils/postgre.repos"
 const selectDatas: any = [
   "username",
   "email",
@@ -33,5 +33,12 @@ const createMe = async (datas: any) => {
   await Users.save(datas)
 }
 
-const deleteMe = async (_target: any) => {}
+const deleteMe = async (_target: any) => {
+  userRepo
+    .createQueryBuilder()
+    .delete()
+    .from(Users)
+    .where({ username: _target })
+    .execute()
+}
 export { getMe, getAll, deleteMe, createMe }
