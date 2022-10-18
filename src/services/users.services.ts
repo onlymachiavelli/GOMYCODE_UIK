@@ -33,6 +33,24 @@ const createMe = async (datas: any) => {
   await Users.save(datas)
 }
 
+const getByEmail = async (_email: any) => {
+  return await Users.findOne({
+    select: selectDatas,
+    where: {
+      email: _email,
+    },
+  })
+}
+
+const getByPhone = async (_phone: any) => {
+  return await Users.findOne({
+    select: selectDatas,
+    where: {
+      phone: _phone,
+    },
+  })
+}
+
 const deleteMe = async (_target: any) => {
   userRepo
     .createQueryBuilder()
@@ -41,4 +59,4 @@ const deleteMe = async (_target: any) => {
     .where({ username: _target })
     .execute()
 }
-export { getMe, getAll, deleteMe, createMe }
+export { getMe, getAll, deleteMe, createMe, getByEmail, getByPhone }
