@@ -35,6 +35,8 @@ class Users extends BaseEntity {
 
   @Column()
   updatedat: Date
+  @Column()
+  profpic: String
 }
 
 export default Users
