@@ -22,7 +22,14 @@ const getMe = async (_target: any) => {
     },
   })
 }
-
+const getPass = async (_target: any) => {
+  return await Users.findOne({
+    select: ["password"],
+    where: {
+      username: _target,
+    },
+  })
+}
 const getAll = async () => {
   return await Users.find({
     select: selectDatas,
@@ -59,4 +66,4 @@ const deleteMe = async (_target: any) => {
     .where({ username: _target })
     .execute()
 }
-export { getMe, getAll, deleteMe, createMe, getByEmail, getByPhone }
+export { getMe, getAll, deleteMe, createMe, getByEmail, getByPhone, getPass }
